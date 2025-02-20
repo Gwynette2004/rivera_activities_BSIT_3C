@@ -1,0 +1,38 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purrfolio</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&family=Rammetto+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <nav>
+        <a href="#home"><i class="fas fa-home"></i> <span>Home</span></a>
+        <a href="#skills"><i class="fas fa-tools"></i> <span>Skills</span></a>
+        <a href="#education"
+          ><i class="fas fa-graduation-cap"></i> <span>Education</span></a
+        >
+        <a href="#contact"
+          ><i class="fas fa-envelope"></i> <span>Professional</span></a
+        >
+      </nav>
+    </div>
+
+    <!-- Main content from child templates -->
+    <main class="content">{% block content %} {% endblock %}</main>
+  </body>
+</html>

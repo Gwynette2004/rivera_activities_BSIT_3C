@@ -1,0 +1,103 @@
+/* Sidebar container */
+.sidebar {
+  position: fixed; /* Fixed position to stay during scroll */
+  left: 0; /* Aligns to the left side */
+  top: 0; /* Starts at the top */
+  height: 100vh; /* Full viewport height */
+  width: 80px; /* Collapsed width */
+  background: linear-gradient(
+    135deg,
+    #2c3e50,
+    #1a252f
+  ); /* Gradient for a sleek look */
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  overflow: hidden; /* Hide content when collapsed */
+  transition: width 0.4s ease; /* Smooth transition for hover */
+  z-index: 1000; /* Ensures it's above other content */
+  padding-top: 20px; /* Space for the title */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between sections */
+}
+
+/* Expand sidebar on hover */
+.sidebar:hover {
+  width: 260px; /* Expanded width */
+}
+
+/* Sidebar title */
+.sidebar .title {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0; /* Hide title by default */
+  transform: translateY(-20px); /* Slide effect */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* Show title on hover */
+.sidebar:hover .title {
+  opacity: 1; /* Reveal title */
+  transform: translateY(0); /* Slide in */
+}
+
+/* Navigation links */
+.sidebar nav {
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  gap: 12px; /* Space between links */
+  padding: 0 10px; /* Consistent side padding */
+}
+
+/* Link styling */
+.sidebar nav a {
+  display: flex; /* Align icon and text horizontally */
+  align-items: center; /* Center vertically */
+  color: white;
+  text-decoration: none; /* Remove underline */
+  padding: 12px 18px; /* Space around links */
+  border-radius: 8px; /* Rounded corners */
+  white-space: nowrap; /* Prevent text wrapping */
+  font-size: 18px; /* Readable text */
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* Icons inside links */
+.sidebar nav a i {
+  font-size: 22px; /* Icon size */
+  margin-right: 20px; /* Space between icon and text */
+  transition: transform 0.3s ease;
+}
+
+/* Hide link text by default */
+.sidebar nav a span {
+  opacity: 0; /* Hide text */
+  transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+/* Show link text on hover */
+.sidebar:hover nav a span {
+  opacity: 1; /* Reveal text */
+}
+
+/* Hover effect on links */
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.1); /* Soft highlight */
+  transform: translateX(5px); /* Slight movement */
+}
+
+/* Active link indicator */
+.sidebar nav a.active {
+  background: rgba(255, 255, 255, 0.2); /* Highlight for active section */
+}
+
+/* Smooth icon hover effect */
+.sidebar nav a:hover i {
+  transform: scale(1.2); /* Enlarge icon slightly */
+}
