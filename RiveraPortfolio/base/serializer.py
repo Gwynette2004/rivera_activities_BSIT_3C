@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Item
+from .models import Student
 
-class ItemSerializer(serializers.ModelSerializer):
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Item
+        model = Student
         fields = '__all__'

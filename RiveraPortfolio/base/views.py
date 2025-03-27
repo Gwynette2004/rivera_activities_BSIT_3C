@@ -1,35 +1,33 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Item
-from .serializer import ItemSerializer
-# Create your views here.
+from .models import Student
+from .serializer import StudentSerializer
 
+# Home view with sample data
 def home(request):
     data = [
         {"title": "Projects", "count": 4},
         {"title": "Skills", "count": 5},
         {"title": "Dean's Listers", "count": 8},
     ]
-    # Pass the data to the template
     return render(request, 'base/home.html', {'data': data})
 
+# Get all students and create a new student
+class StudentListCreateView(generics.ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
-# get all items and create a new item in one
-class ItemListCreateView(generics.ListCreateAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+# Get one student
+class StudentDetailView(generics.RetrieveAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
-#get one item
-class ItemDetailView(generics.RetrieveAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+# Update a student
+class StudentUpdateView(generics.UpdateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
-#update an item
-class ItemUpdateView(generics.UpdateAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
-
-#delete an item
-class ItemDeleteView(generics.DestroyAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+# Delete a student
+class StudentDeleteView(generics.DestroyAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
